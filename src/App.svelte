@@ -6,7 +6,7 @@
   let showCard = false;
   
   const cards = [
-    '0', '0.5', '1', '2', '3', '5', '8', '13', '20', '40', '100', '?', '☕️'
+    '0', '0.5', '1', '2', '3', '5', '8', '13', '20', '40', '100', '🤔', '☕️'
   ];
 
   const [send, receive] = crossfade({
@@ -25,10 +25,10 @@
   }
 </script>
 
-<div class="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center p-4">
+<div class="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 grid items-center justify-items-center p-4 overflow-hidden">
   {#if !showCard}
     <!-- Card Selection View -->
-    <div class="w-full max-w-4xl">
+    <div class="w-full max-w-4xl col-start-1 row-start-1">
       <h1 class="text-4xl md:text-5xl font-bold text-white text-center mb-8 md:mb-12" in:fade out:fade>
         Planning Poker
       </h1>
@@ -52,7 +52,7 @@
     </div>
   {:else}
     <!-- Card Display View -->
-    <div class="w-full h-screen flex flex-col items-center justify-center p-4">
+    <div class="w-full h-full flex flex-col items-center justify-center p-4 col-start-1 row-start-1">
       <div
         in:receive={{key: selectedCard}}
         out:send={{key: selectedCard}}
